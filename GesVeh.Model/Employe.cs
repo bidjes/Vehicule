@@ -5,9 +5,8 @@ using System.Text;
 
 namespace GesVeh.Model
 {
-    public class Employe
+    public class Employe : BaseModel
     {
-        public int ID { get; set; }
         public string Matricule { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }

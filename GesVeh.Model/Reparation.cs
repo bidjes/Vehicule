@@ -5,9 +5,8 @@ using System.Text;
 
 namespace GesVeh.Model
 {
-    public class Reparation
+    public class Reparation : BaseModel
     {
-        public int ID { get; set; }
         public decimal Cout { get; set; }
         public Vehicule Vehicule { get; set; }
     }

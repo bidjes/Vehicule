@@ -5,9 +5,8 @@ using System.Text;
 
 namespace GesVeh.Model
 {
-    public class ReleveKms
+    public class ReleveKms : BaseModel
     {
-        public int ID { get; set; }
         public Vehicule Vehicule { get; set; }
         public DateTime DateReleve { get; set; }
         public int Kms { get; set; }

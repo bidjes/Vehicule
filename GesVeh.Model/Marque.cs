@@ -5,9 +5,8 @@ using System.Text;
 
 namespace GesVeh.Model
 {
-    public class Marque
+    public class Marque : BaseModel
     {
-        public int ID { get; set; }
         public string Nom { get; set; }
         public IList<Modele> Modeles { get; set; }
     }

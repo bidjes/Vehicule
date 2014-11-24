@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Affectation.cs" />
     <Compile Include="Agence.cs" />
+    <Compile Include="BaseModel.cs" />
     <Compile Include="Contrat.cs" />
     <Compile Include="Employe.cs" />
     <Compile Include="Finition.cs" />

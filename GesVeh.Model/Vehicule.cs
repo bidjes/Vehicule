@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace GesVeh.Model
 {
-    public class Vehicule
+    public class Vehicule : BaseModel
     {
-        public int ID { get; set; }
-
         public string Immatriculation { get; set; }
 
         public Etat Etat { get; set; }

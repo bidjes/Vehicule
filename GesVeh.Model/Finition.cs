@@ -5,9 +5,8 @@ using System.Text;
 
 namespace GesVeh.Model
 {
-    public class Finition
+    public class Finition : BaseModel
     {
-        public int ID { get; set; }
         public string Nom { get; set; }
         public decimal Prix { get; set; }
         public Modele Modele { get; set; }

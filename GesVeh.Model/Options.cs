@@ -5,9 +5,8 @@ using System.Text;
 
 namespace GesVeh.Model
 {
-    public class Options
+    public class Options : BaseModel
     {
-        public int ID { get; set; }
         public int Description { get; set; }
         public decimal Prix { get; set; }
     }

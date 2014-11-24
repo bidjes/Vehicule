@@ -5,9 +5,8 @@ using System.Text;
 
 namespace GesVeh.Model
 {
-    public class Contrat
+    public class Contrat : BaseModel
     {
-        public int ID { get; set; }
         public Etat Etat { get; set; }
         public DateTime Debut { get; set; }
         public DateTime Fin { get; set; }
