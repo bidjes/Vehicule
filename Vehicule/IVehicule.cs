@@ -16,6 +16,13 @@ namespace GesVeh.Model
         IList<IContrat> Contrats { get; set; }
         IList<IAffectation> Affectations { get; set; }
         IList<IReparation> Reparations { get; set; }
+
+        IAffectation GetCurrent();
+        IAffectation GetLast();
+
+        IContrat GetCurrent();
+        IContrat GetLast();
+        IContrat GetLastSameState();
     }
 
     public enum Etat

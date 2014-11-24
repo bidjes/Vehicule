@@ -9,6 +9,8 @@ namespace GesVeh.Model
     {
         int ID { get; set; }
         Etat Etat { get; set; }
+        DateTime Debut { get; set; }
+        DateTime Fin { get; set; }
         int Mois { get; set; }
         int Kms { get; set; }
         decimal Loyer { get; set; }
