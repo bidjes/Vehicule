@@ -37,13 +37,12 @@ namespace GesVeh.Implement
             return Affectations.Where(y => y.Fin == Affectations.Max(x => x.Fin)).First();
         }
 
-
-        IContrat IVehicule.GetCurrent()
+        public IContrat IVehicule.GetCurrent()
         {
             return Contrats.Where(y => y.Debut >= DateTime.Now && y.Debut <= DateTime.Now).First();
         }
 
-        IContrat IVehicule.GetLast()
+        public IContrat IVehicule.GetLast()
         {
             return Contrats.Where(y => y.Fin == Contrats.Max(x => x.Fin)).First();
         }
