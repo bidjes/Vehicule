@@ -10,8 +10,8 @@ namespace GesVeh.Model
         int ID { get; set; }
         IVehicule Vehicules { get; set; }
         IAgence Agences { get; set; }
+        IEmploye Employe { get; set; }
         DateTime Debut { get; set; }
         DateTime Fin { get; set; }
-        string Employe { get; set; }
     }
 }
