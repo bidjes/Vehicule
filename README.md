@@ -1,6 +1,6 @@
-Vehicule
+﻿Vehicule
 ========
 
-Gestion de véhicules avec contrats et affectations
+Gestion de véhicules avec contrats et affectations développé en C#.
 
 Permet de gérer tous les véhicule d'un groupe de manière unifié.

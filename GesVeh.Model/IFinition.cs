@@ -9,6 +9,7 @@ namespace GesVeh.Model
     {
         int ID { get; set; }
         string Nom { get; set; }
+        decimal Prix { get; set; }
         IModele Modele { get; set; }
         IList<IOptions> Options { get; set; }
     }

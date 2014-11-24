@@ -56,5 +56,28 @@ namespace GesVeh.Implement
         {
             return RelevesKms.Where(y => y.DateReleve == RelevesKms.Max(x => x.DateReleve)).First();
         }
+
+        public IMarque GetMarque()
+        {
+            return Finition.Modele.Marque;
+        }
+
+        public IModele GetModele()
+        {
+            return Finition.Modele;
+        }
+
+        public IList<IOptions> GetFullOptions()
+        {
+            List<IOptions> mesOptions = new List<IOptions>();
+            mesOptions.AddRange(Finition.Options);
+            mesOptions.AddRange(OptionsSupp);
+            return mesOptions;
+        }
+
+        public IEmploye GetCurrentEmploye()
+        {
+            return Affectations.Where(y => y.Fin >= DateTime.Now && y.Debut <= DateTime.Now).First().Employe;
+        }
     }
 }

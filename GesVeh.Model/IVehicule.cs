@@ -26,6 +26,13 @@ namespace GesVeh.Model
         IContrat GetLastSameStateContrat();
 
         IReleveKms GetLastKms();
+
+        IMarque GetMarque();
+        IModele GetModele();
+
+        IOptions GetFullOptions();
+
+        IEmploye GetCurrentEmploye();
     }
 
     public enum Etat
