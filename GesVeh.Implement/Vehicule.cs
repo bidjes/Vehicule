@@ -25,6 +25,7 @@ namespace GesVeh.Implement
 
         public IList<IReparation> Reparations { get; set; }
 
+        public IList<IReleveKms> RelevesKms { get; set; }
 
         public IAffectation GetCurrent()
         {
@@ -50,6 +51,11 @@ namespace GesVeh.Implement
         public IContrat GetLastSameState()
         {
             return Contrats.Where(y => y.Fin == Contrats.Max(x => x.Fin) && y.Etat == this.Etat).First();
+        }
+
+        public IReleveKms GetLastKms()
+        {
+            return RelevesKms.Where(y => y.DateReleve == RelevesKms.Max(x => x.DateReleve)).First();
         }
     }
 }

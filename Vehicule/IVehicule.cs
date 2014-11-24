@@ -16,6 +16,7 @@ namespace GesVeh.Model
         IList<IContrat> Contrats { get; set; }
         IList<IAffectation> Affectations { get; set; }
         IList<IReparation> Reparations { get; set; }
+        IList<IReleveKms> RelevesKms { get; set; }
 
         IAffectation GetCurrent();
         IAffectation GetLast();
@@ -23,6 +24,8 @@ namespace GesVeh.Model
         IContrat GetCurrent();
         IContrat GetLast();
         IContrat GetLastSameState();
+
+        IReleveKms GetLastKms();
     }
 
     public enum Etat
