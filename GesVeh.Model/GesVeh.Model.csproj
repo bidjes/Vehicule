@@ -39,18 +39,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAffectation.cs" />
-    <Compile Include="IAgence.cs" />
-    <Compile Include="IContrat.cs" />
-    <Compile Include="IEmploye.cs" />
-    <Compile Include="IFinition.cs" />
-    <Compile Include="IMarque.cs" />
-    <Compile Include="IModele.cs" />
-    <Compile Include="IOptions.cs" />
-    <Compile Include="IReleveKms.cs" />
-    <Compile Include="IReparation.cs" />
-    <Compile Include="ISociete.cs" />
-    <Compile Include="IVehicule.cs" />
+    <Compile Include="Affectation.cs" />
+    <Compile Include="Agence.cs" />
+    <Compile Include="Contrat.cs" />
+    <Compile Include="Employe.cs" />
+    <Compile Include="Finition.cs" />
+    <Compile Include="Marque.cs" />
+    <Compile Include="Modele.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="ReleveKms.cs" />
+    <Compile Include="Reparation.cs" />
+    <Compile Include="Societe.cs" />
+    <Compile Include="Vehicule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,13 +1,12 @@
-﻿using GesVeh.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GesVeh.Implement
+namespace GesVeh.Model
 {
-    public class Vehicule:IVehicule
+    public class Vehicule
     {
         public int ID { get; set; }
 
@@ -15,69 +14,76 @@ namespace GesVeh.Implement
 
         public Etat Etat { get; set; }
 
-        public IFinition Finition { get; set; }
+        public Finition Finition { get; set; }
 
-        public IList<IOptions> OptionsSupp { get; set; }
+        public IList<Options> OptionsSupp { get; set; }
 
-        public IList<IContrat> Contrats { get; set; }
+        public IList<Contrat> Contrats { get; set; }
 
-        public IList<IAffectation> Affectations { get; set; }
+        public IList<Affectation> Affectations { get; set; }
 
-        public IList<IReparation> Reparations { get; set; }
+        public IList<Reparation> Reparations { get; set; }
 
-        public IList<IReleveKms> RelevesKms { get; set; }
+        public IList<ReleveKms> RelevesKms { get; set; }
 
-        public IAffectation GetCurrentAffectation()
+        public Affectation GetCurrentAffectation()
         {
             return Affectations.Where(y => y.Fin >= DateTime.Now && y.Debut <= DateTime.Now).First();
         }
 
-        public IAffectation GetLastAffectation()
+        public Affectation GetLastAffectation()
         {
             return Affectations.Where(y => y.Fin == Affectations.Max(x => x.Fin)).First();
         }
 
-        public IContrat GetCurrentContrat()
+        public Contrat GetCurrentContrat()
         {
             return Contrats.Where(y => y.Debut >= DateTime.Now && y.Debut <= DateTime.Now).First();
         }
 
-        public IContrat GetLastContrat()
+        public Contrat GetLastContrat()
         {
             return Contrats.Where(y => y.Fin == Contrats.Max(x => x.Fin)).First();
         }
 
-        public IContrat GetLastSameStateContrat()
+        public Contrat GetLastSameStateContrat()
         {
             return Contrats.Where(y => y.Fin == Contrats.Max(x => x.Fin) && y.Etat == this.Etat).First();
         }
 
-        public IReleveKms GetLastKms()
+        public ReleveKms GetLastKms()
         {
             return RelevesKms.Where(y => y.DateReleve == RelevesKms.Max(x => x.DateReleve)).First();
         }
 
-        public IMarque GetMarque()
+        public Marque GetMarque()
         {
             return Finition.Modele.Marque;
         }
 
-        public IModele GetModele()
+        public Modele GetModele()
         {
             return Finition.Modele;
         }
 
-        public IList<IOptions> GetFullOptions()
+        public IList<Options> GetFullOptions()
         {
-            List<IOptions> mesOptions = new List<IOptions>();
+            List<Options> mesOptions = new List<Options>();
             mesOptions.AddRange(Finition.Options);
             mesOptions.AddRange(OptionsSupp);
             return mesOptions;
         }
 
-        public IEmploye GetCurrentEmploye()
+        public Employe GetCurrentEmploye()
         {
             return Affectations.Where(y => y.Fin >= DateTime.Now && y.Debut <= DateTime.Now).First().Employe;
         }
+    }
+
+    public enum Etat
+    {
+        Demande,
+        Commande,
+        Actif
     }
 }

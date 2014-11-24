@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GesVeh.Implement", "GesVeh.Implement\GesVeh.Implement.csproj", "{EF908FE1-383E-40F5-8A1E-9A364CD0A96F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GesVeh.Model", "GesVeh.Model\GesVeh.Model.csproj", "{5ECC1A19-15EE-4BE8-AEFA-35D90CBF629D}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EF908FE1-383E-40F5-8A1E-9A364CD0A96F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF908FE1-383E-40F5-8A1E-9A364CD0A96F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF908FE1-383E-40F5-8A1E-9A364CD0A96F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF908FE1-383E-40F5-8A1E-9A364CD0A96F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5ECC1A19-15EE-4BE8-AEFA-35D90CBF629D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5ECC1A19-15EE-4BE8-AEFA-35D90CBF629D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ECC1A19-15EE-4BE8-AEFA-35D90CBF629D}.Release|Any CPU.ActiveCfg = Release|Any CPU
