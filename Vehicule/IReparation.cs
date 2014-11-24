@@ -8,6 +8,7 @@ namespace GesVeh.Model
     public interface IReparation
     {
         int ID { get; set; }
+        decimal Cout { get; set; }
         IVehicule Vehicule { get; set; }
     }
 }

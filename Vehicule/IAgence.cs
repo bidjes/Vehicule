@@ -8,6 +8,7 @@ namespace GesVeh.Model
     public interface IAgence
     {
         int ID { get; set; }
+        string Designation { get; set; }
         ISociete Societe { get; set; }
         IList<IAffectation> Affectations { get; set; }
     }

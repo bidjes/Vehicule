@@ -5,10 +5,11 @@ using System.Text;
 
 namespace GesVeh.Model
 {
-    public interface ISociete
+    public interface IFinition
     {
         int ID { get; set; }
-        string Designation { get; set; }
-        IList<IAgence> Agences { get; set; }
+        string Nom { get; set; }
+        IModele Modele { get; set; }
+        IList<IOptions> Options { get; set; }
     }
 }

@@ -42,6 +42,10 @@
     <Compile Include="IAgence.cs" />
     <Compile Include="IAffectation.cs" />
     <Compile Include="IContrat.cs" />
+    <Compile Include="IFinition.cs" />
+    <Compile Include="IMarque.cs" />
+    <Compile Include="IModele.cs" />
+    <Compile Include="IOptions.cs" />
     <Compile Include="IReparation.cs" />
     <Compile Include="ISociete.cs" />
     <Compile Include="IVehicule.cs" />
