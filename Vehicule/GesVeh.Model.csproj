@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5ECC1A19-15EE-4BE8-AEFA-35D90CBF629D}</ProjectGuid>
+    <ProjectGuid>{F643A8C9-DF61-4B0E-AB5F-728EF8F9856B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GesVeh.Model</RootNamespace>
@@ -39,15 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAffectation.cs" />
     <Compile Include="IAgence.cs" />
+    <Compile Include="IAffectation.cs" />
     <Compile Include="IContrat.cs" />
-    <Compile Include="IEmploye.cs" />
     <Compile Include="IFinition.cs" />
     <Compile Include="IMarque.cs" />
     <Compile Include="IModele.cs" />
     <Compile Include="IOptions.cs" />
-    <Compile Include="IReleveKms.cs" />
     <Compile Include="IReparation.cs" />
     <Compile Include="ISociete.cs" />
     <Compile Include="IVehicule.cs" />

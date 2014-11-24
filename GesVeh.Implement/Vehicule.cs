@@ -27,27 +27,27 @@ namespace GesVeh.Implement
 
         public IList<IReleveKms> RelevesKms { get; set; }
 
-        public IAffectation GetCurrent()
+        public IAffectation GetCurrentAffectation()
         {
             return Affectations.Where(y => y.Fin >= DateTime.Now && y.Debut <= DateTime.Now).First();
         }
 
-        public IAffectation GetLast()
+        public IAffectation GetLastAffectation()
         {
             return Affectations.Where(y => y.Fin == Affectations.Max(x => x.Fin)).First();
         }
 
-        public IContrat IVehicule.GetCurrent()
+        public IContrat GetCurrentContrat()
         {
             return Contrats.Where(y => y.Debut >= DateTime.Now && y.Debut <= DateTime.Now).First();
         }
 
-        public IContrat IVehicule.GetLast()
+        public IContrat GetLastContrat()
         {
             return Contrats.Where(y => y.Fin == Contrats.Max(x => x.Fin)).First();
         }
 
-        public IContrat GetLastSameState()
+        public IContrat GetLastSameStateContrat()
         {
             return Contrats.Where(y => y.Fin == Contrats.Max(x => x.Fin) && y.Etat == this.Etat).First();
         }

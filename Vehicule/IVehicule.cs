@@ -18,12 +18,12 @@ namespace GesVeh.Model
         IList<IReparation> Reparations { get; set; }
         IList<IReleveKms> RelevesKms { get; set; }
 
-        IAffectation GetCurrentAffectation();
-        IAffectation GetLastAffectation();
+        IAffectation GetCurrent();
+        IAffectation GetLast();
 
-        IContrat GetCurrentContrat();
-        IContrat GetLastContrat();
-        IContrat GetLastSameStateContrat();
+        IContrat GetCurrent();
+        IContrat GetLast();
+        IContrat GetLastSameState();
 
         IReleveKms GetLastKms();
     }
