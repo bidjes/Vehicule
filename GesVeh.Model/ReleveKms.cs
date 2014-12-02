@@ -7,7 +7,8 @@ namespace GesVeh.Model
 {
     public class ReleveKms : BaseModel
     {
-        public Vehicule Vehicule { get; set; }
+        public int VehiculeID { get; set; }
+        public virtual Vehicule Vehicule { get; set; }
         public DateTime DateReleve { get; set; }
         public int Kms { get; set; }
     }

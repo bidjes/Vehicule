@@ -8,7 +8,8 @@ namespace GesVeh.Model
     public class Modele:BaseModel
     {
         public string Nom { get; set; }
-        public Marque Marque { get; set; }
-        public IList<Finition> Finitions { get; set; }
+        public int MarqueID { get; set; }
+        public virtual Marque Marque { get; set; }
+        public virtual IList<Finition> Finitions { get; set; }
     }
 }

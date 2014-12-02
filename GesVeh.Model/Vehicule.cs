@@ -12,17 +12,18 @@ namespace GesVeh.Model
 
         public Etat Etat { get; set; }
 
-        public Finition Finition { get; set; }
+        public int FinitionID { get; set; }
+        public virtual Finition Finition { get; set; }
 
-        public IList<Options> OptionsSupp { get; set; }
+        public virtual IList<Options> OptionsSupp { get; set; }
 
-        public IList<Contrat> Contrats { get; set; }
+        public virtual IList<Contrat> Contrats { get; set; }
 
-        public IList<Affectation> Affectations { get; set; }
+        public virtual IList<Affectation> Affectations { get; set; }
 
-        public IList<Reparation> Reparations { get; set; }
+        public virtual IList<Reparation> Reparations { get; set; }
 
-        public IList<ReleveKms> RelevesKms { get; set; }
+        public virtual IList<ReleveKms> RelevesKms { get; set; }
 
         public Affectation GetCurrentAffectation()
         {
@@ -74,7 +75,7 @@ namespace GesVeh.Model
 
         public Employe GetCurrentEmploye()
         {
-            return Affectations.Where(y => y.Fin >= DateTime.Now && y.Debut <= DateTime.Now).First().Employe;
+            return this.GetCurrentAffectation().Employe;
         }
     }
 

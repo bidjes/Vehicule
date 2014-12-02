@@ -8,6 +8,7 @@ namespace GesVeh.Model
     public class Reparation : BaseModel
     {
         public decimal Cout { get; set; }
-        public Vehicule Vehicule { get; set; }
+        public int VehiculeID { get; set; }
+        public virtual Vehicule Vehicule { get; set; }
     }
 }

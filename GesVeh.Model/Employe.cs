@@ -5,11 +5,14 @@ using System.Text;
 
 namespace GesVeh.Model
 {
+    /// <summary>
+    /// Description simplifiée d'un employé
+    /// </summary>
     public class Employe : BaseModel
     {
         public string Matricule { get; set; }
         public string Nom { get; set; }
         public string Prenom { get; set; }
-        public IList<Affectation> Affectations { get; set; }
+        public virtual IList<Affectation> Affectations { get; set; }
     }
 }

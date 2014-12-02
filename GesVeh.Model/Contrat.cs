@@ -13,6 +13,7 @@ namespace GesVeh.Model
         public int Mois { get; set; }
         public int Kms { get; set; }
         public decimal Loyer { get; set; }
-        public Vehicule Vehicule { get; set; }
+        public int VehiculeID { get; set; }
+        public virtual Vehicule Vehicule { get; set; }
     }
 }
