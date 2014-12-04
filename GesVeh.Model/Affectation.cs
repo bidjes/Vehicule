@@ -18,5 +18,10 @@ namespace GesVeh.Model
         public virtual Employe Employe { get; set; }
         public DateTime Debut { get; set; }
         public DateTime Fin { get; set; }
+
+        public override IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(System.ComponentModel.DataAnnotations.ValidationContext validationContext)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -10,5 +10,10 @@ namespace GesVeh.Model
         public decimal Cout { get; set; }
         public int VehiculeID { get; set; }
         public virtual Vehicule Vehicule { get; set; }
+
+        public override IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(System.ComponentModel.DataAnnotations.ValidationContext validationContext)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

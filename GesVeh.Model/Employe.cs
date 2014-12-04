@@ -14,5 +14,10 @@ namespace GesVeh.Model
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public virtual IList<Affectation> Affectations { get; set; }
+
+        public override IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(System.ComponentModel.DataAnnotations.ValidationContext validationContext)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

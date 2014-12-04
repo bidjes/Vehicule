@@ -9,5 +9,10 @@ namespace GesVeh.Model
     {
         public string Nom { get; set; }
         public virtual IList<Modele> Modeles { get; set; }
+
+        public override IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(System.ComponentModel.DataAnnotations.ValidationContext validationContext)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

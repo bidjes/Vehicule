@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GesVeh.Model
 {
-    public class BaseModel
+    public abstract class BaseModel : IValidatableObject
     {
         public BaseModel()
         {
@@ -20,5 +21,7 @@ namespace GesVeh.Model
         public DateTime ModificationDate { get; set; }
         public DateTime DeletationDate { get; set; }
         public bool Delete { get; set; }
+
+        public abstract IEnumerable<ValidationResult> Validate(ValidationContext validationContext);
     }
 }
