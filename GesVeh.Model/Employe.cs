@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -15,9 +16,24 @@ namespace GesVeh.Model
         public string Prenom { get; set; }
         public virtual IList<Affectation> Affectations { get; set; }
 
-        public override IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(System.ComponentModel.DataAnnotations.ValidationContext validationContext)
+        public override IEnumerable<ValidationResult> Validate(System.ComponentModel.DataAnnotations.ValidationContext validationContext)
         {
-            throw new NotImplementedException();
+            foreach (var item in base.Validate(validationContext))
+            {
+                yield return item;
+            }
+
+            if (string.IsNullOrWhiteSpace(this.Nom))
+            {
+                yield return new ValidationResult
+                ("Le nom doit-être renseigné", new[] { "Nom" });
+            }
+            
+            if (string.IsNullOrWhiteSpace(this.Prenom))
+            {
+                yield return new ValidationResult
+                ("Le prénom doit-être renseigné", new[] { "Prenom" });
+            }
         }
     }
 }

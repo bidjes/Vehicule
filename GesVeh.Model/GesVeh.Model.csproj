@@ -53,6 +53,11 @@
     <Compile Include="Employe.cs" />
     <Compile Include="Finition.cs" />
     <Compile Include="Marque.cs" />
+    <Compile Include="Migrations\201412081052034_ModelVehiculeUpdateModel.cs" />
+    <Compile Include="Migrations\201412081052034_ModelVehiculeUpdateModel.Designer.cs">
+      <DependentUpon>201412081052034_ModelVehiculeUpdateModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Modele.cs" />
     <Compile Include="Options.cs" />
     <Compile Include="ReleveKms.cs" />
@@ -65,6 +70,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201412081052034_ModelVehiculeUpdateModel.resx">
+      <DependentUpon>201412081052034_ModelVehiculeUpdateModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
