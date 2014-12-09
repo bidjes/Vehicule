@@ -72,15 +72,5 @@ namespace GesVeh.Model
                 }
             }
         }
-
-        public virtual void InitCreate()
-        {
-            
-        }
-        public virtual void InitModify()
-        {
-            this.ModifiedBy = "nvardalas";
-            this.ModificationDate = DateTime.Now;
-        }
     }
 }
