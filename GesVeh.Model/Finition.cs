@@ -8,11 +8,15 @@ namespace GesVeh.Model
 {
     public class Finition : BaseModel
     {
+        public Finition(Modele mod)
+        {
+            this.Modele = mod;
+        }
         public string Nom { get; set; }
         public decimal Prix { get; set; }
         public Modele Modele { get; set; }
         public IList<Options> Options { get; set; }
-
+        public IList<Vehicule> Vehicules { get; set; }
         public override IEnumerable<ValidationResult> Validate(System.ComponentModel.DataAnnotations.ValidationContext validationContext)
         {
             foreach (var item in base.Validate(validationContext))

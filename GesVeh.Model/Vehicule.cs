@@ -10,7 +10,7 @@ namespace GesVeh.Model
     public class Vehicule : BaseModel 
     {
         //IList<Reparation> repa, IList<Options> opts, IList<Affectation> affec,IList<ReleveKms> releve,IList<Contrat> cont
-        public Vehicule()
+        public Vehicule(Finition fini)
         {
             //this.Reparations = repa;
             //this.OptionsSupp = opts;
@@ -18,6 +18,8 @@ namespace GesVeh.Model
             //this.RelevesKms = releve;
             //this.Contrats = cont;
 
+            this.Finition = fini;
+            this.Etat = Etat.Demande;
             this.Reparations = new List<Reparation>();
             this.OptionsSupp = new List<Options>();
             this.Affectations = new List<Affectation>();
@@ -25,65 +27,50 @@ namespace GesVeh.Model
             this.Contrats = new List<Contrat>();
         }
         public string Immatriculation { get; set; }
-
         public Etat Etat { get; set; }
-
         public int FinitionID { get; set; }
         public virtual Finition Finition { get; set; }
         public bool Proprietaire { get; set; }
         public DateTime Entree { get; set; }
         public DateTime Sortie { get; set; }
-
         public virtual IList<Options> OptionsSupp { get; set; }
-
         public virtual IList<Contrat> Contrats { get; set; }
-
         public virtual IList<Affectation> Affectations { get; set; }
-
         public virtual IList<Reparation> Reparations { get; set; }
-
         public virtual IList<ReleveKms> RelevesKms { get; set; }
-
+        
         public Affectation GetCurrentAffectation()
         {
             return Affectations.Where(y => y.Fin >= DateTime.Now && y.Debut <= DateTime.Now).First();
         }
-
         public Affectation GetLastAffectation()
         {
             return Affectations.Where(y => y.Fin == Affectations.Max(x => x.Fin)).First();
         }
-
         public Contrat GetCurrentContrat()
         {
             return Contrats.Where(y => y.Debut >= DateTime.Now && y.Debut <= DateTime.Now).First();
         }
-
         public Contrat GetLastContrat()
         {
             return Contrats.Where(y => y.Fin == Contrats.Max(x => x.Fin)).First();
         }
-
         public Contrat GetLastSameStateContrat()
         {
             return Contrats.Where(y => y.Fin == Contrats.Max(x => x.Fin) && y.Etat == this.Etat).First();
         }
-
         public ReleveKms GetLastKms()
         {
             return RelevesKms.Where(y => y.DateReleve == RelevesKms.Max(x => x.DateReleve)).First();
         }
-
         public Marque GetMarque()
         {
             return Finition.Modele.Marque;
         }
-
         public Modele GetModele()
         {
             return Finition.Modele;
         }
-
         public IList<Options> GetFullOptions()
         {
             List<Options> mesOptions = new List<Options>();
@@ -91,7 +78,6 @@ namespace GesVeh.Model
             mesOptions.AddRange(OptionsSupp);
             return mesOptions;
         }
-
         public Employe GetCurrentEmploye()
         {
             return this.GetCurrentAffectation().Employe;
@@ -104,9 +90,16 @@ namespace GesVeh.Model
         /// <returns>Liste de règles violées</returns>
         public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext) 
         {
+            //model de base
             foreach (var item in base.Validate(validationContext))
             {
                 yield return item;
+            }
+            //finition
+            if (this.Finition == null)
+            {
+                yield return new ValidationResult
+                ("Il faut une finition pour le véhicule", new[] { "Finition" });
             }
             //Contrats
             if (this.Proprietaire == false)
@@ -158,7 +151,13 @@ namespace GesVeh.Model
                     ("La date du premier contrat doit démarrer à la date de la première affectation.", new[] { "Affectations", "Entree" });
                 }
             }
-        } 
+        }
+        public override void InitCreate()
+        {
+            base.InitCreate();
+            Contrats.Add(new Contrat(this));
+            Contrats.First().InitCreate();
+        }
     }
 
     public enum Etat

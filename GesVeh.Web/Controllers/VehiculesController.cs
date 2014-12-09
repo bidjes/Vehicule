@@ -17,8 +17,7 @@ namespace GesVeh.Web.Controllers
         // GET: Vehicules
         public ActionResult Index()
         {
-            var vehicules = db.Vehicules.Include(v => v.Finition);
-            return View(vehicules.ToList());
+            return View(db.Vehicules);
         }
 
         // GET: Vehicules/Details/5

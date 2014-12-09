@@ -95,17 +95,17 @@ string pkName = GetPrimaryKeyName();
 if (pkName != null) {
 #>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.<#= pkName #> }) |
-            @Html.ActionLink("Details", "Details", new { id=item.<#= pkName #> }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.<#= pkName #> })
+            @Html.ActionLink("Edit", "Edit", new { id=item.<#= pkName #> },new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.<#= pkName #> },new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.<#= pkName #> },new { @class = "btn btn-danger" })
         </td>
 <#
 } else {
 #>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ },new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ },new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ },new { @class = "btn btn-danger" })
         </td>
 <#
 }

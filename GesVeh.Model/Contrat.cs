@@ -8,6 +8,17 @@ namespace GesVeh.Model
 {
     public class Contrat : BaseModel
     {
+        public Contrat(Vehicule veh)
+        {
+            this.Vehicule = veh;
+            this.Etat = Etat.Demande;
+            this.Debut = Vehicule.Entree;
+            this.Fin = Vehicule.Sortie;
+            this.Mois = 1;
+            this.Kms = 1;
+            this.Loyer = 1;
+        }
+        
         public Etat Etat { get; set; }
         public DateTime Debut { get; set; }
         public DateTime Fin { get; set; }
@@ -56,7 +67,10 @@ namespace GesVeh.Model
                     ("Le nombre de Kms doit-être supérieur ou égal à 1", new[] { "Kms" });
                 }
             }
-            
+        }
+        public override void InitCreate()
+        {
+            base.InitCreate();
         }
     }
 }
