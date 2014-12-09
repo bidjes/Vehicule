@@ -8,9 +8,9 @@ namespace GesVeh.Model
 {
     public class Finition : BaseModel
     {
-        public Finition(Modele mod)
+        public Finition()
         {
-            this.Modele = mod;
+            
         }
         public string Nom { get; set; }
         public decimal Prix { get; set; }
