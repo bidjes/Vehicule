@@ -8,9 +8,9 @@ namespace GesVeh.Model
 {
     public class Modele:BaseModel
     {
-        public Modele()
+        public Modele(Marque mar)
         {
-            
+            this.Marque = mar;
         }
         public string Nom { get; set; }
         public int MarqueID { get; set; }

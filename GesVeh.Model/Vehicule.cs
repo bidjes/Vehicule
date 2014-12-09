@@ -10,13 +10,15 @@ namespace GesVeh.Model
     public class Vehicule : BaseModel 
     {
         //IList<Reparation> repa, IList<Options> opts, IList<Affectation> affec,IList<ReleveKms> releve,IList<Contrat> cont
-        public Vehicule()
+        public Vehicule(Finition fini)
         {
             //this.Reparations = repa;
             //this.OptionsSupp = opts;
             //this.Affectations = affec;
             //this.RelevesKms = releve;
             //this.Contrats = cont;
+
+            this.Finition = fini;
             this.Etat = Etat.Demande;
             this.Reparations = new List<Reparation>();
             this.OptionsSupp = new List<Options>();
@@ -149,6 +151,12 @@ namespace GesVeh.Model
                     ("La date du premier contrat doit démarrer à la date de la première affectation.", new[] { "Affectations", "Entree" });
                 }
             }
+        }
+        public override void InitCreate()
+        {
+            base.InitCreate();
+            Contrats.Add(new Contrat(this));
+            Contrats.First().InitCreate();
         }
     }
 

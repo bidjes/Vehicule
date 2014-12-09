@@ -8,14 +8,17 @@ namespace GesVeh.Model
 {
     public class Contrat : BaseModel
     {
-        public Contrat()
+        public Contrat(Vehicule veh)
         {
+            this.Vehicule = veh;
             this.Etat = Etat.Demande;
+            this.Debut = Vehicule.Entree;
+            this.Fin = Vehicule.Sortie;
             this.Mois = 1;
             this.Kms = 1;
             this.Loyer = 1;
         }
-
+        
         public Etat Etat { get; set; }
         public DateTime Debut { get; set; }
         public DateTime Fin { get; set; }
@@ -44,11 +47,6 @@ namespace GesVeh.Model
                 ("La date de fin ne peut pas précéder la date de début", new[] { "Debut","Fin" });
             }
             
-            if (this.Debut < this.Vehicule.Entree)
-            {
-                yield return new ValidationResult
-                ("Le contrat ne peut pas commencer avant que le véhicule soit rentré", new[] { "Vehicule","Debut" });
-            }
             
             if (this.Etat > Etat.Demande)
             {
@@ -69,6 +67,10 @@ namespace GesVeh.Model
                     ("Le nombre de Kms doit-être supérieur ou égal à 1", new[] { "Kms" });
                 }
             }
+        }
+        public override void InitCreate()
+        {
+            base.InitCreate();
         }
     }
 }
