@@ -23,12 +23,19 @@ namespace GesVeh.Model
             this.DeleteBy = null;
         }
         public int ID { get; set; }
+        [ScaffoldColumn(false)]
         public string CreateBy { get; set; }
+        [ScaffoldColumn(false)]
         public string ModifiedBy { get; set; }
+        [ScaffoldColumn(false)]
         public string DeleteBy { get; set; }
+        [ScaffoldColumn(false)]
         public DateTime CreationDate { get; set; }
+        [ScaffoldColumn(false)]
         public DateTime? ModificationDate { get; set; }
+        [ScaffoldColumn(false)]
         public DateTime? DeletationDate { get; set; }
+        [ScaffoldColumn(false)]
         public bool Delete { get; set; }
 
         public virtual IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
@@ -43,21 +50,21 @@ namespace GesVeh.Model
                 yield return new ValidationResult
                 ("Il faut renseigner une date de création.", new[] { "CreationDate" });
             }
-            if (this.CreationDate < DateTime.Now)
-            {
+            //if (this.CreationDate < DateTime.Now)
+            //{
                 
-                if (this.ModificationDate == null)
-                {
-                    yield return new ValidationResult
-                    ("Il faut renseigner une date de modification.", new[] { "ModificationDate" });
-                }
+            //    if (this.ModificationDate == null)
+            //    {
+            //        yield return new ValidationResult
+            //        ("Il faut renseigner une date de modification.", new[] { "ModificationDate" });
+            //    }
                 
-                if (string.IsNullOrWhiteSpace(this.ModifiedBy))
-                {
-                    yield return new ValidationResult
-                    ("Il faut renseigner un modificateur.", new[] { "ModifiedBy" });
-                }
-            }
+            //    if (string.IsNullOrWhiteSpace(this.ModifiedBy))
+            //    {
+            //        yield return new ValidationResult
+            //        ("Il faut renseigner un modificateur.", new[] { "ModifiedBy" });
+            //    }
+            //}
             if (this.Delete)
             {
                 if ( string.IsNullOrEmpty(this.DeleteBy))

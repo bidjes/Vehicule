@@ -22,5 +22,7 @@ namespace GesVeh.Model
         public DbSet<Reparation> Reparation { get; set; }
         public DbSet<Employe> Employes { get; set; }
         public DbSet<Affectation> Affectations { get; set; }
+
+        public System.Data.Entity.DbSet<GesVeh.Model.Options> Options { get; set; }
     }
 }

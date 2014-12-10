@@ -12,11 +12,11 @@ if(IsPartialView) {
 #>
 
 @{
-    ViewBag.Title = "<#= ViewName#>";
+	ViewBag.Title = "<#= ViewName#>";
 <#
 if (!String.IsNullOrEmpty(LayoutPageFile)) {
 #>
-    Layout = "<#= LayoutPageFile#>";
+	Layout = "<#= LayoutPageFile#>";
 <#
 }
 #>
@@ -29,88 +29,89 @@ if (!String.IsNullOrEmpty(LayoutPageFile)) {
 #>
 
 @{
-    Layout = null;
+	Layout = null;
 }
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title><#= ViewName #></title>
+	<meta name="viewport" content="width=device-width" />
+	<title><#= ViewName #></title>
 </head>
 <body>
 <#
-    PushIndent("    ");
+	PushIndent("    ");
 }
 #>
 <p>
-    @Html.ActionLink("Create New", "Create",null,new { @class = "btn btn-success" })
+	@Html.ActionLink("Create New", "Create",null,new { @class = "btn btn-success" })
 </p>
 <table class="table">
-    <tr>
+	<tr>
 <#
 IEnumerable<PropertyMetadata> properties = ModelMetadata.Properties;
 foreach (PropertyMetadata property in properties) {
-    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+	if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
 #>
 <#
-        // We do not want to show any association properties for which there is
-        // no associated foreign key.
-        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
-            continue;
-        }
+		// We do not want to show any association properties for which there is
+		// no associated foreign key.
+		if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+			continue;
+		}
 #>
-        <th>
-            @Html.DisplayNameFor(model => model.<#= GetValueExpression(property) #>)
-        </th>
+		<th>
+			@Html.DisplayNameFor(model => model.<#= GetValueExpression(property) #>)
+		</th>
 <#
-    }
+	}
 }
 #>
-        <th></th>
-    </tr>
+		<th></th>
+	</tr>
 
 @foreach (var item in Model) {
-    <tr>
+	<tr>
 <#
 foreach (PropertyMetadata property in properties) {
-    if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+	if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
 #>
 <#
-        // We do not want to show any association properties for which there is
-        // no associated foreign key.
-        if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
-            continue;
-        }
+		// We do not want to show any association properties for which there is
+		// no associated foreign key.
+		if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+			continue;
+		}
 #>
-        <td>
-            @Html.DisplayFor(modelItem => <#= "item." + GetValueExpression(property) #>)
-        </td>
+		<td>
+			@Html.DisplayFor(modelItem => <#= "item." + GetValueExpression(property) #>)
+		</td>
 <#
-    }
+	}
 }
 
 string pkName = GetPrimaryKeyName();
 if (pkName != null) {
 #>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.<#= pkName #> },new { @class = "btn btn-warning" }) |
-            @Html.ActionLink("Details", "Details", new { id=item.<#= pkName #> },new { @class = "btn btn-info" }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.<#= pkName #> },new { @class = "btn btn-danger" })
-        </td>
+		<td>
+			@Html.ActionLink("Edit", "Edit", new { id=item.<#= pkName #> },new { @class = "btn btn-warning" })
+			@Html.ActionLink("Details", "Details", new { id=item.<#= pkName #> },new { @class = "btn btn-info" })
+			@Html.ActionLink("Delete", "Delete", new { id=item.<#= pkName #> },new { @class = "btn btn-danger" })
+		</td>
 <#
 } else {
 #>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ },new { @class = "btn btn-warning" }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ },new { @class = "btn btn-info" }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ },new { @class = "btn btn-danger" })
-        </td>
+		<td>
+		<div class="btn-group" role="group" aria-label="...">
+			@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ },new { @class = "btn btn-warning" })
+			@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ },new { @class = "btn btn-info" })
+			@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ },new { @class = "btn btn-danger" })
+		</td>
 <#
 }
 #>
-    </tr>
+	</tr>
 }
 
 </table>
@@ -119,7 +120,7 @@ if (pkName != null) {
 #>
 <#
 if(!IsPartialView && !IsLayoutPageSelected) {
-    ClearIndent();
+	ClearIndent();
 #>
 </body>
 </html>

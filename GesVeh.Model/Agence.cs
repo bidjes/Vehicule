@@ -27,10 +27,10 @@ namespace GesVeh.Model
                 yield return new ValidationResult
                 ("Il faut une désignation.", new[] { "Designation" });
             }
-            if (this.Societe == null)
+            if (this.SocieteID < 1)
             {
                 yield return new ValidationResult
-                ("Il faut une Société reliée à cette Agence.", new[] { "Societe" });
+                ("Il faut une Société reliée à cette Agence.", new[] { "Societe","SocieteID" });
             }
         }
     }
